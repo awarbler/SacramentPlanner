@@ -1,0 +1,185 @@
+﻿/* Austin's churchofjesuschrist.org Bootstrap theme.
+    TODO: Migrate to bootstrap.custom.scss
+*/
+
+:root {
+    --lds-blue: rgb(0, 125, 165);
+    --lds-blue-dark: rgb(0, 48, 87);
+}
+
+* {
+    font-family: "Ensign:Sans", 'Open Sans', sans-serif;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+a {
+    color: var(--lds-blue);
+    transition: color 0.3s ease 0s;
+}
+
+    a:hover {
+        color: var(--lds-blue-dark);
+    }
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--lds-blue);
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus {
+    background-color: var(--lds-blue-dark);
+}
+
+a.btn-primary, a.btn-danger {
+    line-height: 28px;
+}
+
+/* Button designs copied from churchofjesuschrist.org homepage */
+.btn-primary {
+    background-color: var(--lds-blue);
+    border: none;
+    border-radius: 0.125rem;
+    display: inline-block;
+    transition: background-color 0.3s ease 0s;
+    height: 40px;
+    padding: 6px 12px;
+}
+
+    .btn-primary:hover {
+        background-color: rgb(0, 48, 87);
+    }
+
+.btn-danger {
+    border: none;
+    border-radius: 0.125rem;
+    transition: background-color 0.3s ease 0s;
+    height: 40px;
+    padding: 6px 12px;
+}
+
+.btn i {
+    padding-right: 0.65em;
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: 600;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.form-group {
+    margin: 12px 0;
+}
+
+.form-control {
+    resize: none;
+}
+
+nav svg {
+    height: 56px;
+    margin-left: -8px;
+}
+
+.multiline {
+    white-space: pre-wrap;
+}
+
+.navbar {
+    height: 57px;
+    padding: 0;
+}
+
+/* I'm sorry */
+.navbar-brand {
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
+    line-height: 56px;
+    padding: 0;
+    padding-left: 7%;
+    padding-right: 16px;
+    margin-right: 0;
+    text-align: right;
+    background: var(--lds-blue);
+}
+
+    .navbar-brand:hover {
+        color: #ddd; /*🔨🐧*/
+    }
+
+    .navbar-brand i {
+        margin-right: 0.2em;
+    }
+
+.scripture-text {
+    font-family: "Ensign:Serif", Palatino, "Palatino Linotype", Palatino-Roman, serif;
+    font-size: 18px;
+}
+
+    .scripture-text strong {
+        font-family: inherit;
+        font-size: 16.2px;
+    }
+
+#sort-filter {
+    margin-bottom: 10px;
+}
+
+    #sort-filter > * {
+        height: 40px;
+        vertical-align: middle;
+    }
+
+.table thead {
+    background: var(--lds-blue);
+    color: white;
+}
+
+td {
+    vertical-align: middle;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+/* https://projects.verou.me/bubbly/ */
+.speech-bubble {
+    display: inline-block;
+    position: relative;
+    background: var(--lds-blue);
+    border-radius: .4em;
+    color: white;
+    padding: 6px 12px;
+}
+
+    .speech-bubble:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-right-color: var(--lds-blue);
+        border-left: 0;
+        border-bottom: 0;
+        margin-top: -10px;
+        margin-left: -20px;
+    }
