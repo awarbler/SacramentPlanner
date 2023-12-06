@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using SacramentPlanner.Data;
-using SacramentPlanner.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
