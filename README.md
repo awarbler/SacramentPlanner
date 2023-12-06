@@ -36,14 +36,14 @@ This project was a group final for BYU-I .Net Framework (CSE 325). Requirements 
 * Install Parallels
 * Install Windows 10 or 11
 * Install Visual Studio Windows 2022
-* * Install Visual Studio Mac 2022 
+* Install Visual Studio Mac 2022 
 
 <!--{Describe the programming language that you used and any libraries.}-->
 
 # Useful Websites
 
 <!--{Make a list of websites that you found helpful in this project}-->
-* * [Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
+* [Visual Studio](https://visualstudio.microsoft.com/vs/mac/)
 * [Visual Studio](https://www.visualstudio.com/vs/community/)
 * [Visual Studio Install](https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022)
 *  [Github](https://github.com/)
