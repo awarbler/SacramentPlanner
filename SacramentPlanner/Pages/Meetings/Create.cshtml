@@ -1,0 +1,84 @@
+@page
+@model SacramentPlanner.Pages.Meetings.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Meeting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Meeting.wardName" class="control-label"></label>
+                <input asp-for="Meeting.wardName" class="form-control" />
+                <span asp-validation-for="Meeting.wardName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.conductor" class="control-label"></label>
+                <input asp-for="Meeting.conductor" class="form-control" />
+                <span asp-validation-for="Meeting.conductor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.date" class="control-label"></label>
+                <input asp-for="Meeting.date" class="form-control" />
+                <span asp-validation-for="Meeting.date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.openingPrayer" class="control-label"></label>
+                <input asp-for="Meeting.openingPrayer" class="form-control" />
+                <span asp-validation-for="Meeting.openingPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.openingHymn" class="control-label"></label>
+                <input asp-for="Meeting.openingHymn" class="form-control" />
+                <span asp-validation-for="Meeting.openingHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.sacramentHymn" class="control-label"></label>
+                <input asp-for="Meeting.sacramentHymn" class="form-control" />
+                <span asp-validation-for="Meeting.sacramentHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.restHymn" class="control-label"></label>
+                <input asp-for="Meeting.restHymn" class="form-control" />
+                <span asp-validation-for="Meeting.restHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.specialMusicalNumber" class="control-label"></label>
+                <input asp-for="Meeting.specialMusicalNumber" class="form-control" />
+                <span asp-validation-for="Meeting.specialMusicalNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.closingHymn" class="control-label"></label>
+                <input asp-for="Meeting.closingHymn" class="form-control" />
+                <span asp-validation-for="Meeting.closingHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.closingPrayer" class="control-label"></label>
+                <input asp-for="Meeting.closingPrayer" class="form-control" />
+                <span asp-validation-for="Meeting.closingPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.speakerNames" class="control-label"></label>
+                <input asp-for="Meeting.speakerNames" class="form-control" />
+                <span asp-validation-for="Meeting.speakerNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

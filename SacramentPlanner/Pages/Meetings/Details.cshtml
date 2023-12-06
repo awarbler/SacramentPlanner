@@ -1,0 +1,89 @@
+@page
+@model SacramentPlanner.Pages.Meetings.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Sacrament Meeting</h4>
+    <div align="center">
+        <a class='btn btn-success ms-5 justify-content-center w-25 align=right' onclick="printDiv('print-content')">Print</a>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.wardName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.wardName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.conductor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.conductor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.openingPrayer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.openingPrayer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.openingHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.openingHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.sacramentHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.sacramentHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.restHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.restHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.specialMusicalNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.specialMusicalNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.closingHymn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.closingHymn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.closingPrayer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.closingPrayer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.speakerNames)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.speakerNames)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Meeting?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+

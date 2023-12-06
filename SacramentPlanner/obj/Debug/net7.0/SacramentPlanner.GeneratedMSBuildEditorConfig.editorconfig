@@ -1,0 +1,65 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SacramentPlanner
+build_property.RootNamespace = SacramentPlanner
+build_property.ProjectDir = /Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Meetings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVldGluZ3MvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Meetings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVldGluZ3MvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Meetings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVldGluZ3MvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Meetings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVldGluZ3MvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Meetings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVldGluZ3MvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anitawoodford/Desktop/SCHOOL/CIT 365 .NET/github/SacramentPlanner/SacramentPlanner/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-sb45h67xn6
