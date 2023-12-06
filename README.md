@@ -1,3 +1,5 @@
+# LDS Sacrament Meeting Planner
+
 CSE 325 Team Genesis Final Project Sacrament Meeting Planner
 <!--{Describe your purpose for writing this software.}-->
 We created this to demonstrate using Visual Studio Code, GitHub, and C#.
@@ -5,8 +7,6 @@ We created this to demonstrate using Visual Studio Code, GitHub, and C#.
 <!---{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a code walkthrough.  The focus should be on sharing what you learned about the language syntax.}-->
 
 [Software Demo Video]()
-
-# LDS Sacrament Meeting Planner
 This project was a group final for BYU-I .Net Framework (CSE 325). Requirements were to build a .net core web app with CRUD support for a database that contains data for a typical LDS Sacrament Meeting. Meetings normally have:
 * opening, closing, sacrament hymns
 * opening and closing prayer
