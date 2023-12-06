@@ -20,10 +20,12 @@ namespace SacramentPlanner.Models
 		public string? OpeningPrayer { get; set; }
 
 		// TODO: Store hymns as ints - create a file (likely JSON array) to look up names
-		// Grab names from https://www.churchofjesuschrist.org/music/index/hymns/number?lang=eng
+		// Names are from https://www.churchofjesuschrist.org/music/index/hymns/number?lang=eng
+		// https://stackoverflow.com/questions/29841503/json-serialization-deserialization-in-asp-net-core
 		[Display(Name = "Opening Hymn")]
 		public string? OpeningHymn { get; set; }
 		
+		// Sacrament hymns are 169-196, consider enforcing this range
 		[Display(Name = "Sacrament Hymn")]
 		public string? SacramentHymn { get; set; }
 		
@@ -35,6 +37,7 @@ namespace SacramentPlanner.Models
 		[Display(Name = "Special Musical Number")]
 		public string? SpecialMusicalNumber { get; set; }
 		
+		// For further hymnforcement, disallow gendered/choir pieces (309-337) - review "using the hymnbook"
 		[Display(Name = "Closing Hymn")]
 		public string? ClosingHymn { get; set; }
 
@@ -47,6 +50,7 @@ namespace SacramentPlanner.Models
 		//        Possible approach: https://stackoverflow.com/a/15221028
 		//        Store topics in here too?
 		//        Whatever the case, there needs to be some kind of special frontend stuff in Create/Edit...
+		//        - Modification of https://codepen.io/redmangospros/pen/POVmwQ/
 		[Display(Name = "Speakers")]
 		public string? SpeakerNames
 		{
