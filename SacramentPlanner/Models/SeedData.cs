@@ -10,6 +10,7 @@ namespace SacramentPlanner.Models
 	        using var context = new SacramentPlannerContext(
 		        serviceProvider.GetRequiredService<
 			        DbContextOptions<SacramentPlannerContext>>());
+
 	        if (context == null || context.Meeting == null)
 	        {
 		        throw new ArgumentNullException("Null SacramentPlannerContext");
@@ -35,8 +36,8 @@ namespace SacramentPlanner.Models
 					ClosingPrayer = "John Ellefson",
 					TalksList = new List<Talk>
 					{
-						new(){SpeakerName = "Anita Woodford", Topic = "Holy Ghost"},
-						new(){SpeakerName = "Aaron Picker", Topic = "Thinking Celestial"}
+						new() {SpeakerName = "Anita Woodford", Topic = "Holy Ghost"},
+						new() {SpeakerName = "Aaron Picker", Topic = "Thinking Celestial"}
 					}
 		        }
 	        );
