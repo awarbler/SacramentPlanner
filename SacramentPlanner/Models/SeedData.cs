@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SacramentPlanner.Data;
 
 namespace SacramentPlanner.Models
@@ -9,42 +7,43 @@ namespace SacramentPlanner.Models
 	{
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new SacramentPlannerContext(
-                serviceProvider.GetRequiredService<
-                    DbContextOptions<SacramentPlannerContext>>()))
-            {
-                if (context == null || context.Meeting == null)
-                {
-                    throw new ArgumentNullException("Null RazorPagesMovieContext");
-                }
+	        using var context = new SacramentPlannerContext(
+		        serviceProvider.GetRequiredService<
+			        DbContextOptions<SacramentPlannerContext>>());
 
-                // Look for any movies.
-                if (context.Meeting.Any())
-                {
-                    return;   // DB has been seeded
-                }
+	        if (context == null || context.Meeting == null)
+	        {
+		        throw new ArgumentNullException("Null SacramentPlannerContext");
+	        }
 
-                context.Meeting.AddRange(
-                    new Meeting
-                    {
-                        wardName = "Lake Fork Ward",
-                        date = DateTime.Parse("1989-2-12"),
-                        openingPrayer = "Romantic Comedy",
-                        openingHymn = "Romantic Comedy",
-                        sacramentHymn = "Romantic Comedy",
-                        restHymn = "Romantic Comedy",
-                        specialMusicalNumber = "Romantic Comedy",
-                        closingHymn = "Romantic Comedy",
+	        // Look for any movies.
+	        if (context.Meeting.Any())
+	        {
+		        return;   // DB has been seeded
+	        }
 
-                        closingPrayer = "Romantic Comedy",
-                        
-                    }
-                );
-                context.SaveChanges();
-            }
+	        context.Meeting.AddRange(
+		        new Meeting
+		        {
+			        WardName = "Lake Fork Ward",
+			        Date = DateTime.Parse("1989-2-12"),
+					Conductor = "Bishop So-and-So",
+					OpeningHymn = 67,
+					OpeningPrayer = "Austin Slaughter",
+					SacramentHymn = 173,
+					SpecialMusicalNumber = "",
+					ClosingHymn = 80,
+					ClosingPrayer = "John Ellefson",
+					TalksList = new List<Talk>
+					{
+						new() {SpeakerName = "Anita Woodford", Topic = "Holy Ghost"},
+						new() {SpeakerName = "Aaron Picker", Topic = "Thinking Celestial"}
+					}
+		        }
+	        );
+	        context.SaveChanges();
         }
     }
-
 }
 
 

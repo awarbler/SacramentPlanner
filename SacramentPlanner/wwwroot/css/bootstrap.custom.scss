@@ -1,0 +1,139 @@
+﻿// Customizations for Bootstrap in Sass, set up using this tutorial:
+// https://www.dotnetcatch.com/2019/05/16/adding-bootstrap-sass-to-asp-net-core/
+// Use Web Compiler 2022+ to compile.
+// https://marketplace.visualstudio.com/items?itemName=Failwyn.WebCompiler64
+
+/* Bootstrap overrides
+-------------------------------------------------- */
+@import "https://foundry.churchofjesuschrist.org/Foundry/v1/Ensign/css";
+$font-family-sans-serif: "Ensign:Sans", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+// Blue -> LDS blue
+$primary: rgb(0, 125, 165);
+
+/* Bootstrap source
+-------------------------------------------------- */
+@import "../lib/bootstrap/scss/bootstrap.scss";
+
+/* Default site.css and _Layout.cshtml.css - sticky footer, etc.
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    //line-height: 30px; /* Vertically center the text there */
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Custom CSS that, for some reason, goes after Bootstrap
+---------------------------------------------------------------- */
+.navbar {
+    height: 57px;
+    padding: 0;
+}
+
+nav svg {
+    height: 56px;
+    margin-left: -8px;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s ease 0s;
+    line-height: 56px;
+    padding: 0;
+    padding-left: 7%;
+    padding-right: 16px;
+    margin-right: 0;
+    text-align: right;
+    background: $primary;
+}
+
+    .navbar-brand:hover {
+        color: #ddd; /*🔨🐧*/
+    }
+
+    .navbar-brand i {
+        margin-right: 0.2em;
+    }
+
+h1 {
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.125rem;
+    display: inline-block;
+    height: 40px;
+    padding: 6px 12px;
+}
+
+.btn i {
+    padding-right: 0.65em;
+}
+
+.control-label {
+    font-weight: 700;
+}
+
+.form-group {
+    margin: 12px 0;
+}
+
+#sort-filter {
+    margin-bottom: 10px;
+}
+
+#sort-filter > * {
+    height: 40px;
+    vertical-align: middle;
+}

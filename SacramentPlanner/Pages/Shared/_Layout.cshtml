@@ -1,51 +1,58 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SacramentPlanner</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SacramentPlanner.styles.css" asp-append-version="true" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - SacramentPlanner</title>
+	<link rel="stylesheet" href="~/css/bootstrap.custom.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	@*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+	@*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+	@*<link rel="stylesheet" href="~/SacramentPlanner.styles.css" asp-append-version="true" />*@
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">SacramentPlanner</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+			<a class="navbar-brand" asp-area="" asp-page="/Index">SacramentPlanner</a>
+			@* This SVG was stolen from churchofjesuschrist.org *@
+			<svg viewBox="8 8 20 15" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient x1="0%" y1="50%" y2="50%" id="a"><stop stop-color="rgb(0, 125, 165)" stop-opacity=".6" offset="0%"></stop><stop stop-color="rgb(0, 125, 165)" stop-opacity=".25" offset="100%"></stop></linearGradient><linearGradient x1="0%" y1="50%" y2="50%" id="b"><stop stop-color="rgb(0, 125, 165)" stop-opacity=".35" offset="0%"></stop><stop stop-color="rgb(0, 125, 165)" stop-opacity=".15" offset="100%"></stop></linearGradient><linearGradient x1="0%" y1="50%" x2="98.607%" y2="50%" id="c"><stop stop-color="rgb(0, 125, 165)" stop-opacity=".6" offset="0%"></stop><stop stop-color="rgb(0, 125, 165)" stop-opacity=".35" offset="100%"></stop></linearGradient></defs><g fill-rule="nonzero" fill="none"><path fill="url(#a)" d="M6 40V0h10.34l-7.755 40z"></path><path fill="url(#b)" d="M8 40V3.93L33.984 40z"></path><path fill="url(#a)" d="M8 40V0l15.64 40z"></path><path fill="url(#c)" d="M10.598 40H7V0h3.598z"></path><path fill="rgb(0, 125, 165)" d="M0 0h8v40H0z"></path></g></svg>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" asp-area="" asp-page="/Create">New Meeting</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - SacramentPlanner - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			<p>&copy; 2023 - SacramentPlanner - <a asp-area="" asp-page="/Privacy">Privacy</a></p>
+			<p style="font-size: 0.85em"><strong>DISCLAIMER:</strong> "Ensign" font family is loaded from <a href="https://foundry.churchofjesuschrist.org/">foundry.churchofjesuschrist.org</a>, which is probably not intended for public use &ndash; but also doesn't say anything about licensing. Ask for forgiveness, not permission ¯\_(ツ)_/¯</p>
+		</div>
+		</div>
+	</footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
