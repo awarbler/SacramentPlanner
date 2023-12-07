@@ -12,7 +12,7 @@ namespace SacramentPlanner.Models
 		public string? WardName { get; set; }
 
 		[DataType(DataType.Date)]
-		[Display(Name = "Date of Meeting")]
+		[Display(Name = "Meeting Date")]
 		[Required]
 		public DateTime Date { get; set; }
 
@@ -35,14 +35,14 @@ namespace SacramentPlanner.Models
 		public int SacramentHymn { get; set; }
 		
 		[Display(Name = "Rest Hymn")]
-		public int RestHymn { get; set; }
+		public int? RestHymn { get; set; }
 
 		// TODO in Create/Edit: Don't allow a musical number and a rest hymn at the same time
 		//       (Select box to choose type that hides the one not selected? (In JS))
 		[Display(Name = "Special Musical Number")]
 		public string? SpecialMusicalNumber { get; set; }
 		
-		// For further hymnforcement, disallow gendered/choir pieces (309-337) - review "using the hymnbook"
+		// For further hymnforcement, maybe disallow gendered/choir pieces (309-337) - review "using the hymnbook"
 		[Display(Name = "Closing Hymn")]
 		[Required]
 		public int ClosingHymn { get; set; }
@@ -59,7 +59,7 @@ namespace SacramentPlanner.Models
 		//        - Modification of https://codepen.io/redmangospros/pen/POVmwQ/
 
 		/// <summary>
-		/// A list of Talks stored as JSON, since single strings can be stored in the database just fine.
+		/// A list of Talks stored as JSON, since single strings can be stored in the database without issue.
 		/// </summary>
 		[Display(Name="Talks (JSON)")]
 		public string TalksJson { get; set; } = "";
