@@ -73,10 +73,15 @@
             @Html.DisplayFor(model => model.Meeting.ClosingPrayer)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Meeting.TalksJson)
+            @Html.DisplayNameFor(model => model.Meeting.TalksList)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Meeting.TalksJson)
+            <ul>
+                @foreach (var talk in Model.Meeting.TalksList)
+                {
+                    <li>@talk.SpeakerName - @talk.Topic</li>
+                }
+            </ul>
         </dd>
     </dl>
     
