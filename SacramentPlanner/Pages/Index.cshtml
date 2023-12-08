@@ -28,28 +28,13 @@
                 @Html.DisplayNameFor(model => model.Meeting[0].Conductor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].OpeningHymn)
+                Hymns
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].OpeningPrayer)
+                Prayers
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].SacramentHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].RestHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].SpecialMusicalNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].ClosingHymn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].ClosingPrayer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Meeting[0].TalksJson)
+                @Html.DisplayNameFor(model => model.Meeting[0].TalksList)
             </th>
             <th></th>
         </tr>
@@ -67,28 +52,23 @@
                 @Html.DisplayFor(modelItem => item.Conductor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpeningHymn)
+               <div>Opening: @Html.DisplayFor(modelItem => item.OpeningHymn)</div>
+               <div>Sacrament: @Html.DisplayFor(modelItem => item.SacramentHymn)</div>
+               <div>Rest: @Html.DisplayFor(modelItem => item.RestHymn)</div>
+               <div>Special: @Html.DisplayFor(modelItem => item.SpecialMusicalNumber)</div>
+               <div>Closing: @Html.DisplayFor(modelItem => item.ClosingHymn)</div>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpeningPrayer)
+               <div>Opening: @Html.DisplayFor(modelItem => item.OpeningPrayer)</div>
+               <div>Closing: @Html.DisplayFor(modelItem => item.ClosingPrayer)</div>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SacramentHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RestHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpecialMusicalNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingHymn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClosingPrayer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TalksJson)
+                    <ul>
+                        @foreach (var talk in item.TalksList)
+                        {
+                            <li>@talk.SpeakerName - @talk.Topic</li>
+                        }
+                    </ul>
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

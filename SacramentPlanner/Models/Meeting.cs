@@ -71,7 +71,7 @@ namespace SacramentPlanner.Models
 		// TODO: Convert to JSON on DB updates instead of on list updates?
 		//        (Have these getters and setters in TalksJson instead? Does that work?)
 		[NotMapped]
-		[Display(Name="Talks (List)")]
+		[Display(Name="Speakers")]
 		public List<Talk> TalksList
 		{
 			get => JsonConvert.DeserializeObject<List<Talk>>(TalksJson) ?? new List<Talk>();
@@ -81,8 +81,11 @@ namespace SacramentPlanner.Models
 
 	public struct Talk
 	{
-		public string SpeakerName { get; set; }
-		public string Topic { get; set; }
+        [Required(ErrorMessage = "Speaker Name is required")]
+        public string SpeakerName { get; set; }
+
+        [Required(ErrorMessage = "Topic is required")]
+        public string Topic { get; set; }
 	}
 }
 
