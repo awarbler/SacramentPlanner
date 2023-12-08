@@ -64,9 +64,28 @@
                 <span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Meeting.TalksJson" class="control-label"></label>
-                <input asp-for="Meeting.TalksJson" class="form-control" />
+                <label asp-for="Meeting.TalksList" class="control-label"></label>
+                @*<input asp-for="Meeting.TalksJson" class="form-control" />*@
                 <span asp-validation-for="Meeting.TalksJson" class="text-danger"></span>
+                <!-- Dynamic table for TalksJson -->
+                <table id="talksTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Speaker Name</th>
+                            <th>Topic</th>
+                            <th>Action</th>
+                            <button id="addRowBtn" class="btn btn-primary" type="button">Add Speaker</button>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Placeholder for the new row that will be added -->
+                        <tr id="newRowTemplate" style="display: none;">
+                            <td><input type="text" class="speakerNameInput form-control"></td>
+                            <td><input type="text" class="topicInput form-control"></td>
+                            <td><button class="deleteRowBtn btn btn-danger">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -78,6 +97,50 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#meetingForm').submit(function (e) {
+            let isValid = true;
+            // Check each row for empty Speaker and Topic fields
+            $('#talksTable tbody tr').each(function () {
+                if (!$(this).is(':visible') || $(this).hasClass('deletedRow')) {
+                    return true; // Skip validation for hidden or deleted rows
+                }
+
+                let speaker = $(this).find('.speakerNameInput').val();
+                let topic = $(this).find('.topicInput').val();
+
+                if (speaker.trim() === '' || topic.trim() === '') {
+                    alert('Speaker and Topic fields cannot be empty');
+                    isValid = false;
+                }
+            });
+            if (!isValid) {
+                e.preventDefault(); // Prevent form submission
+            }
+            return isValid;
+        });
+
+        // Function to add a new row to the table
+        $('#addRowBtn').click(function () {
+            // Clone the template row and show it
+            var newRow = $('#newRowTemplate').clone().removeAttr('id').show();
+
+            newRow.find('.speakerNameInput').attr('name', 'Speaker');
+            newRow.find('.topicInput').attr('name', 'Topic');
+
+            $('#talksTable tbody').append(newRow);
+        });
+
+        // Function to delete a row from the table
+        $('#talksTable').on('click', '.deleteRowBtn', function () {
+            $(this).closest('tr').remove();
+        });
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

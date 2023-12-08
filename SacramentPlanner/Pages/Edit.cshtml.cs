@@ -48,6 +48,21 @@ namespace SacramentPlanner.Pages
                 return Page();
             }
 
+            var talksList = new List<Talk>();
+
+            // Retrieve form values and group speaker with its corresponding topic
+            var speakers = Request.Form["Speaker"];
+            var topics = Request.Form["Topic"];
+
+            if (speakers.Count > 0 && topics.Count > 0)
+            {
+                for (int i = 0; i < speakers.Count; i++)
+                {
+                    talksList.Add(new Talk { SpeakerName = speakers[i], Topic = topics[i] });
+                }
+            }
+            Meeting.TalksList = talksList;
+
             _context.Attach(Meeting).State = EntityState.Modified;
 
             try
