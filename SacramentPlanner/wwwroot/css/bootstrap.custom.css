@@ -10195,15 +10195,19 @@ h1, .h1 {
 }
 
 .btn {
-  border: none;
   border-radius: 0.125rem;
   display: inline-block;
   height: 40px;
   padding: 6px 12px;
+  white-space: nowrap;
 }
 
 .btn i {
   padding-right: 0.65em;
+}
+
+.icon-only i {
+  padding-right: 0;
 }
 
 .control-label {
@@ -10221,4 +10225,8 @@ h1, .h1 {
 #sort-filter > * {
   height: 40px;
   vertical-align: middle;
+}
+
+dt {
+  margin-bottom: 12px;
 }
