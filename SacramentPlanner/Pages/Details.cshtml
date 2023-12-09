@@ -2,143 +2,135 @@
 @model SacramentPlanner.Pages.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+	ViewData["Title"] = "Details";
 }
 
-<style>
-    .line {
-        border-top: 1px solid #000;
-        width: 80%;
-        margin: 20px auto;
-    }
-</style>
+<h1 class="d-print-none">Meeting Details</h1>
 
+<a class="btn btn-primary d-print-none" href="#" onclick="window.print()"><i class="fa-solid fa-print"></i>Print Programs</a>
 
-<h1 class="d-print-none">Details</h1>
-
-<h4 class="d-print-none">Meeting</h4>
+@* Has a nice side effect of giving the print a little extra top margin *@
 <hr />
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-7 text-center">
-            <h3><strong>@Html.DisplayFor(model => model.Meeting.WardName) - Sacrament Meeting</strong></h3>
-            <h5><strong>@Model.Meeting.Date.ToString("MMMM dd, yyyy")</strong></h5>
-            <div class="line"></div>
+<div class="container text-center">
+	<h3><strong>@Html.DisplayFor(model => model.Meeting.WardName) - Sacrament Meeting</strong></h3>
+	<h5><strong>@Model.Meeting.Date.ToString("MMMM dd, yyyy")</strong></h5>
+	<div class="line"></div>
 
-            @* Conductor *@
-            @if (Model.Meeting.Conductor != null)
-            {
-                <p><strong>Conducting</strong> - @Html.DisplayFor(model => model.Meeting.Conductor)</p>
-            }
-            else
-            {
-                <p><strong>Conducting</strong> - To be announced</p>
-            }
+	@* Conductor *@
+	@if (Model.Meeting.Conductor != null)
+	{
+		<p><strong>Conducting</strong> - @Html.DisplayFor(model => model.Meeting.Conductor)</p>
+	}
+	else
+	{
+		<p><strong>Conducting</strong> - To be announced</p>
+	}
 
-            @* Opening Song *@
-            @if (Model.Meeting.OpeningHymn.ToString() != "")
-            {
-                <p>
-                    <strong>Opening Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.OpeningHymn]</i>
-                    - Page @Html.DisplayFor(model => model.Meeting.OpeningHymn)
-                </p>
-            }
-            else
-            {
-                <p><strong>Opening Hymn</strong> - To be announced</p>
-            }
+	<p><strong>Welcome and Announcements</strong></p>
 
-            @* Invocation *@
-            @if (Model.Meeting.OpeningHymn.ToString() != "")
-            {
-                <p><strong>Invocation</strong> - @Html.DisplayFor(model => model.Meeting.OpeningPrayer)</p>
-            }
-            else
-            {
-                <p><strong>Invocation</strong> - By invitation</p>
-            }
+	@* Opening Song *@
+	@if (Model.Meeting.OpeningHymn.ToString() != "")
+	{
+		<p>
+			<strong>Opening Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.OpeningHymn]</i>
+			- Page @Html.DisplayFor(model => model.Meeting.OpeningHymn)
+		</p>
+	}
+	else
+	{
+		<p><strong>Opening Hymn</strong> - To be announced</p>
+	}
 
-            @* Ward Business *@
-            <p><strong>Ward Business</strong></p>
+	@* Invocation *@
+	@if (Model.Meeting.OpeningHymn.ToString() != "")
+	{
+		<p><strong>Invocation</strong> - @Html.DisplayFor(model => model.Meeting.OpeningPrayer)</p>
+	}
+	else
+	{
+		<p><strong>Invocation</strong> - By invitation</p>
+	}
 
-            @* Sacrament Hymn *@
-            @if (Model.Meeting.SacramentHymn.ToString() != "")
-            {
-                <p>
-                    <strong>Sacrament Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.SacramentHymn]</i>
-                    - Page @Html.DisplayFor(model => model.Meeting.SacramentHymn)
-                </p>
-            }
-            else
-            {
-                <p><strong>Sacrament Hymn</strong> - To be announced</p>
-            }
+	@* Ward Business *@
+	<p><strong>Ward Business</strong></p>
 
-            @* Sacrament *@
-            <p><strong>Administration of the Sacrament</strong></p>
+	@* Sacrament Hymn *@
+	@if (Model.Meeting.SacramentHymn.ToString() != "")
+	{
+		<p>
+			<strong>Sacrament Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.SacramentHymn]</i>
+			- Page @Html.DisplayFor(model => model.Meeting.SacramentHymn)
+		</p>
+	}
+	else
+	{
+		<p><strong>Sacrament Hymn</strong> - To be announced</p>
+	}
 
-            @* Pre-Interim Speakers *@
-            @for (int i = 0; i < Model.SpeakersPreInterim; i++)
-            {
-                <p>
-                    <strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName),
-                    <i>@Html.DisplayFor(model => model.Meeting.TalksList[i].Topic)</i>
-                </p>
-            }
+	@* Sacrament *@
+	<p><strong>Administration of the Sacrament</strong></p>
 
-            @* Special Musical Number *@
-            @if (Model.Meeting.SpecialMusicalNumber != null)
-            {
-                <p><strong>Special Musical Number</strong> - @Html.DisplayFor(model => model.Meeting.SpecialMusicalNumber)</p>
-            }
+	@* Pre-Interim Speakers *@
+	@for (int i = 0; i < Model.SpeakersPreInterim; i++)
+	{
+		<p>
+			<strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName),
+			<i>@Html.DisplayFor(model => model.Meeting.TalksList[i].Topic)</i>
+		</p>
+	}
 
-            @* Interim Hymn *@
-            @if (Model.Meeting.RestHymn.ToString() != "")
-            {
-                <p>
-                    <strong>Interim Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value]</i>
-                    - Page @Html.DisplayFor(model => model.Meeting.RestHymn)
-                </p>
-            }
+	@* Special Musical Number *@
+	@if (Model.Meeting.SpecialMusicalNumber != null)
+	{
+		<p><strong>Special Musical Number</strong> - @Html.DisplayFor(model => model.Meeting.SpecialMusicalNumber)</p>
+	}
 
-            @* Post-Interim Speakers *@
-            @for (int i = Model.SpeakersPreInterim; i < Model.Meeting.TalksList.Count(); i++)
-            {
-                <p>
-                    <strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName),
-                    <i>@Html.DisplayFor(model => model.Meeting.TalksList[i].Topic)</i>
-                </p>
-            }
+	@* Interim Hymn *@
+	@if (Model.Meeting.RestHymn.ToString() != "")
+	{
+		<p>
+			<strong>Interim Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value]</i>
+			- Page @Html.DisplayFor(model => model.Meeting.RestHymn)
+		</p>
+	}
 
-            @* Closing Hymn *@
-            @if (Model.Meeting.ClosingHymn.ToString() != "")
-            {
-                <p>
-                    <strong>Closing Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.ClosingHymn]</i>
-                    - Page @Html.DisplayFor(model => model.Meeting.ClosingHymn)
-                </p>
-            }
-            else
-            {
-                <p><strong>Sacrament Hymn</strong> - To be announced</p>
-            }
+	@* Post-Interim Speakers *@
+	@for (int i = Model.SpeakersPreInterim; i < Model.Meeting.TalksList.Count(); i++)
+	{
+		<p>
+			<strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName),
+			<i>@Html.DisplayFor(model => model.Meeting.TalksList[i].Topic)</i>
+		</p>
+	}
 
-            @* Benediction *@
-            @if (Model.Meeting.ClosingPrayer.ToString() != "")
-            {
-                <p><strong>Benediction</strong> - @Html.DisplayFor(model => model.Meeting.ClosingPrayer)</p>
-            }
-            else
-            {
-                <p><strong>Benediction</strong> - By invitation</p>
-            }
-        </div>
-    </div>
+	@* Closing Hymn *@
+	@if (Model.Meeting.ClosingHymn.ToString() != "")
+	{
+		<p>
+			<strong>Closing Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.ClosingHymn]</i>
+			- Page @Html.DisplayFor(model => model.Meeting.ClosingHymn)
+		</p>
+	}
+	else
+	{
+		<p><strong>Sacrament Hymn</strong> - To be announced</p>
+	}
+
+	@* Benediction *@
+	@if (Model.Meeting.ClosingPrayer.ToString() != "")
+	{
+		<p><strong>Benediction</strong> - @Html.DisplayFor(model => model.Meeting.ClosingPrayer)</p>
+	}
+	else
+	{
+		<p><strong>Benediction</strong> - By invitation</p>
+	}
 </div>
+
 <div class="d-print-none">
-    <a asp-page="./Edit" asp-route-id="@Model.Meeting?.Id" style="margin-right:12px" class="btn btn-primary"><i class="fa-solid fa-file-pen"></i>Edit</a>
-    <a asp-page="./Index" class="btn btn-primary"><i class="fa-solid fa-chevron-left"></i>Back to List</a>
+	<a asp-page="./Edit" asp-route-id="@Model.Meeting?.Id" style="margin-right:12px" class="btn btn-primary"><i class="fa-solid fa-file-pen"></i>Edit</a>
+	<a asp-page="./Index" class="btn btn-primary"><i class="fa-solid fa-chevron-left"></i>Back to List</a>
 </div>
 
 
