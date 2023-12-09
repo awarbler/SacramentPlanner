@@ -39,7 +39,10 @@
             @* Opening Song *@
             @if (Model.Meeting.OpeningHymn.ToString() != "")
             {
-                <p><strong>Opening Hymn</strong> - @Html.DisplayFor(model => model.Meeting.OpeningHymn)</p>
+                <p>
+                    <strong>Opening Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.OpeningHymn - 1]</i>
+                    - Page @Html.DisplayFor(model => model.Meeting.OpeningHymn)
+                </p>
             }
             else
             {
@@ -62,7 +65,10 @@
             @* Sacrament Hymn *@
             @if (Model.Meeting.SacramentHymn.ToString() != "")
             {
-                <p><strong>Sacrament Hymn</strong> - @Html.DisplayFor(model => model.Meeting.SacramentHymn)</p>
+                <p>
+                    <strong>Sacrament Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.SacramentHymn - 1]</i>
+                    - Page @Html.DisplayFor(model => model.Meeting.SacramentHymn)
+                </p>
             }
             else
             {
@@ -75,7 +81,10 @@
             @* Pre-Interim Speakers *@
             @for (int i = 0; i < Model.SpeakersPreInterim; i++)
             {
-                <p><strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName)</p>
+                <p>
+                    <strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName),
+                    <i>@Html.DisplayFor(model => model.Meeting.TalksList[i].Topic)</i>
+                </p>
             }
 
             @* Special Musical Number *@
@@ -87,19 +96,28 @@
             @* Interim Hymn *@
             @if (Model.Meeting.RestHymn.ToString() != "")
             {
-                <p><strong>Interim Hymn</strong> - @Html.DisplayFor(model => model.Meeting.RestHymn)</p>
+                <p>
+                    <strong>Interim Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value - 1]</i>
+                    - Page @Html.DisplayFor(model => model.Meeting.RestHymn)
+                </p>
             }
 
             @* Post-Interim Speakers *@
             @for (int i = Model.SpeakersPreInterim; i < Model.Meeting.TalksList.Count(); i++)
             {
-                <p><strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName)</p>
+                <p>
+                    <strong>Speaker</strong> - @Html.DisplayFor(model => model.Meeting.TalksList[i].SpeakerName),
+                    <i>@Html.DisplayFor(model => model.Meeting.TalksList[i].Topic)</i>
+                </p>
             }
 
             @* Closing Hymn *@
             @if (Model.Meeting.ClosingHymn.ToString() != "")
             {
-                <p><strong>Closing Hymn</strong> - @Html.DisplayFor(model => model.Meeting.ClosingHymn)</p>
+                <p>
+                    <strong>Closing Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.ClosingHymn - 1]</i>
+                    - Page @Html.DisplayFor(model => model.Meeting.ClosingHymn)
+                </p>
             }
             else
             {
