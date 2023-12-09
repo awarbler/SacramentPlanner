@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SacramentPlanner.Data;
 using SacramentPlanner.Models;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace SacramentPlanner.Pages
 {
@@ -62,23 +63,28 @@ namespace SacramentPlanner.Pages
 
             // Open and parse the hymn names file
             HymnNames = new List<string>();
-            string filePath = "HymnNamesRaw-eng.txt";
+            string filePath = "wwwroot/js/HymnNames-eng.min.json";
 
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        int index = line.IndexOf('-');
-                        if (index != -1 && index + 1 < line.Length)
-                        {
-                            string hymnName = line.Substring(index + 1).Trim();
-                            HymnNames.Add(hymnName);
-                        }
-                    }
-                }
+                string jsonContent = System.IO.File.ReadAllText(filePath);
+                HymnNames = JsonConvert.DeserializeObject<List<string>>(jsonContent);
+
+
+
+                //using (StreamReader sr = new StreamReader(filePath))
+                //{
+                //    string line;
+                //    while ((line = sr.ReadLine()) != null)
+                //    {
+                //        int index = line.IndexOf('-');
+                //        if (index != -1 && index + 1 < line.Length)
+                //        {
+                //            string hymnName = line.Substring(index + 1).Trim();
+                //            HymnNames.Add(hymnName);
+                //        }
+                //    }
+                //}
             }
             catch (Exception ex)
             {

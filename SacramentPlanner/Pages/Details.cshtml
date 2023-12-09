@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model SacramentPlanner.Pages.DetailsModel
 
 @{
@@ -40,7 +40,7 @@
             @if (Model.Meeting.OpeningHymn.ToString() != "")
             {
                 <p>
-                    <strong>Opening Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.OpeningHymn - 1]</i>
+                    <strong>Opening Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.OpeningHymn]</i>
                     - Page @Html.DisplayFor(model => model.Meeting.OpeningHymn)
                 </p>
             }
@@ -66,7 +66,7 @@
             @if (Model.Meeting.SacramentHymn.ToString() != "")
             {
                 <p>
-                    <strong>Sacrament Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.SacramentHymn - 1]</i>
+                    <strong>Sacrament Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.SacramentHymn]</i>
                     - Page @Html.DisplayFor(model => model.Meeting.SacramentHymn)
                 </p>
             }
@@ -97,7 +97,7 @@
             @if (Model.Meeting.RestHymn.ToString() != "")
             {
                 <p>
-                    <strong>Interim Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value - 1]</i>
+                    <strong>Interim Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value]</i>
                     - Page @Html.DisplayFor(model => model.Meeting.RestHymn)
                 </p>
             }
@@ -115,7 +115,7 @@
             @if (Model.Meeting.ClosingHymn.ToString() != "")
             {
                 <p>
-                    <strong>Closing Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.ClosingHymn - 1]</i>
+                    <strong>Closing Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.ClosingHymn]</i>
                     - Page @Html.DisplayFor(model => model.Meeting.ClosingHymn)
                 </p>
             }
@@ -137,8 +137,8 @@
     </div>
 </div>
 <div class="d-print-none">
-    <a asp-page="./Edit" asp-route-id="@Model.Meeting?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Meeting?.Id" style="margin-right:12px" class="btn btn-primary"><i class="fa-solid fa-file-pen"></i>Edit</a>
+    <a asp-page="./Index" class="btn btn-primary"><i class="fa-solid fa-chevron-left"></i>Back to List</a>
 </div>
 
 
