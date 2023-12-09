@@ -15,12 +15,14 @@
 				if (speaker.trim() === '' || topic.trim() === '') {
 					alert('Speaker and Topic fields cannot be empty');
 					isValid = false;
+					return false;
 				}
 			});
 			if (!isValid) {
 				e.preventDefault(); // Prevent form submission
+				return false;
 			}
-			return isValid;
+			return true;
 		});
 
 		// Function to add a new row to the table
