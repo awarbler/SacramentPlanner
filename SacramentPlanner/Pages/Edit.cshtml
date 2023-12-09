@@ -1,158 +1,116 @@
-﻿@page
+﻿@page "{id:int?}"
 @model SacramentPlanner.Pages.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+	ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Meeting</h4>
+<h1><i class="fa-solid fa-pen-to-square"></i> Edit Plan</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post" id="meetingForm">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Meeting.Id" />
-            <div class="form-group">
-                <label asp-for="Meeting.WardName" class="control-label"></label>
-                <input asp-for="Meeting.WardName" class="form-control" />
-                <span asp-validation-for="Meeting.WardName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.Date" class="control-label"></label>
-                <input asp-for="Meeting.Date" class="form-control" />
-                <span asp-validation-for="Meeting.Date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.Conductor" class="control-label"></label>
-                <input asp-for="Meeting.Conductor" class="form-control" />
-                <span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.OpeningHymn" class="control-label"></label>
-                <input asp-for="Meeting.OpeningHymn" class="form-control" />
-                <span asp-validation-for="Meeting.OpeningHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.OpeningPrayer" class="control-label"></label>
-                <input asp-for="Meeting.OpeningPrayer" class="form-control" />
-                <span asp-validation-for="Meeting.OpeningPrayer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.SacramentHymn" class="control-label"></label>
-                <input asp-for="Meeting.SacramentHymn" class="form-control" />
-                <span asp-validation-for="Meeting.SacramentHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.RestHymn" class="control-label"></label>
-                <input asp-for="Meeting.RestHymn" class="form-control" />
-                <span asp-validation-for="Meeting.RestHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.SpecialMusicalNumber" class="control-label"></label>
-                <input asp-for="Meeting.SpecialMusicalNumber" class="form-control" />
-                <span asp-validation-for="Meeting.SpecialMusicalNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.ClosingHymn" class="control-label"></label>
-                <input asp-for="Meeting.ClosingHymn" class="form-control" />
-                <span asp-validation-for="Meeting.ClosingHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.ClosingPrayer" class="control-label"></label>
-                <input asp-for="Meeting.ClosingPrayer" class="form-control" />
-                <span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Meeting.TalksList" class="control-label"></label>
-                @*<input asp-for="Meeting.TalksJson" class="form-control" />*@
-                <span asp-validation-for="Meeting.TalksJson" class="text-danger"></span>
-                <!-- Dynamic table for TalksJson -->
-                <table id="talksTable" class="table">
-                    <thead>
-                        <tr>
-                            <th>Speaker Name</th>
-                            <th>Topic</th>
-                            <th>Action</th>
-                            <button id="addRowBtn" class="btn btn-primary" type="button">Add Speaker</button>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Existing rows from TalksJson -->
-                        @foreach (var talk in Model.Meeting.TalksList)
-                        {
-                            <tr>
-                                <td><input type="text" name="Speaker" class="speakerNameInput form-control" value="@talk.SpeakerName"></td>
-                                <td><input type="text" name="Topic" class="topicInput form-control" value="@talk.Topic"></td>
-                                <td><button class="deleteRowBtn btn btn-danger">Delete</button></td>
-                            </tr>
-                        }
-                        <!-- Placeholder for the new row that will be added -->
-                        <tr id="newRowTemplate" style="display: none;">
-                            <td><input type="text" class="speakerNameInput form-control"></td>
-                            <td><input type="text" class="topicInput form-control"></td>
-                            <td><button class="deleteRowBtn btn btn-danger">Delete</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+	<div class="col-md-5">
+		<form method="post" id="meetingForm">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Meeting.Id" />
+			<div class="form-group">
+				<label asp-for="Meeting.WardName" class="control-label"></label>
+				<input asp-for="Meeting.WardName" class="form-control" />
+				<span asp-validation-for="Meeting.WardName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.Date" class="control-label"></label>
+				<input asp-for="Meeting.Date" class="form-control" />
+				<span asp-validation-for="Meeting.Date" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.Conductor" class="control-label"></label>
+				<input asp-for="Meeting.Conductor" class="form-control" />
+				<span asp-validation-for="Meeting.Conductor" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.OpeningHymn" class="control-label"></label>
+				<input asp-for="Meeting.OpeningHymn" class="form-control" />
+				<span asp-validation-for="Meeting.OpeningHymn" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.OpeningPrayer" class="control-label"></label>
+				<input asp-for="Meeting.OpeningPrayer" class="form-control" />
+				<span asp-validation-for="Meeting.OpeningPrayer" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.SacramentHymn" class="control-label"></label>
+				<input asp-for="Meeting.SacramentHymn" class="form-control" />
+				<span asp-validation-for="Meeting.SacramentHymn" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.RestHymn" class="control-label"></label>
+				<input asp-for="Meeting.RestHymn" class="form-control" />
+				<span asp-validation-for="Meeting.RestHymn" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.SpecialMusicalNumber" class="control-label"></label>
+				<input asp-for="Meeting.SpecialMusicalNumber" class="form-control" />
+				<span asp-validation-for="Meeting.SpecialMusicalNumber" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.ClosingHymn" class="control-label"></label>
+				<input asp-for="Meeting.ClosingHymn" class="form-control" />
+				<span asp-validation-for="Meeting.ClosingHymn" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.ClosingPrayer" class="control-label"></label>
+				<input asp-for="Meeting.ClosingPrayer" class="form-control" />
+				<span asp-validation-for="Meeting.ClosingPrayer" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Meeting.TalksList" class="control-label"></label>
+				@*<input asp-for="Meeting.TalksJson" class="form-control" />*@
+				<span asp-validation-for="Meeting.TalksJson" class="text-danger"></span>
+				@* Dynamic table for TalksJson *@
+				<table id="talksTable" class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Topic</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						@* Existing rows from TalksList *@
+						@foreach (var talk in Model.Meeting.TalksList)
+						{
+							<tr>
+								<td><input type="text" name="Speaker" class="speakerNameInput form-control" value="@talk.SpeakerName"></td>
+								<td><input type="text" name="Topic" class="topicInput form-control" value="@talk.Topic"></td>
+								<td><button class="deleteRowBtn btn btn-danger icon-only"><i class="fa-solid fa-xmark"></i></button></td>
+							</tr>
+						}
+						@* Placeholder for the new row that will be added *@
+						<tr id="newRowTemplate" style="display: none;">
+							<td><input type="text" class="speakerNameInput form-control"></td>
+							<td><input type="text" class="topicInput form-control"></td>
+							<td><button class="deleteRowBtn btn btn-danger icon-only"><i class="fa-solid fa-xmark"></i></button></td>
+						</tr>
+						<tr class="add-btn-row">
+							<td><button id="addRowBtn" class="btn btn-primary" type="button"><i class="fa-solid fa-user-plus"></i>Add Speaker</button></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Save</button>
+				<a asp-page="./Index" class="btn btn-primary float-end"><i class="fa-solid fa-chevron-left"></i>Back to List</a>
+			</div>
+		</form>
+	</div>
 </div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-        $('#meetingForm').submit(function (e) {
-            let isValid = true;
-            // Check each row for empty Speaker and Topic fields
-            $('#talksTable tbody tr').each(function () {
-                if (!$(this).is(':visible') || $(this).hasClass('deletedRow')) {
-                    return true; // Skip validation for hidden or deleted rows
-                }
-
-                let speaker = $(this).find('.speakerNameInput').val();
-                let topic = $(this).find('.topicInput').val();
-
-                if (speaker.trim() === '' || topic.trim() === '') {
-                    alert('Speaker and Topic fields cannot be empty');
-                    isValid = false;
-                }
-            });
-            if (!isValid) {
-                e.preventDefault(); // Prevent form submission
-            }
-            return isValid;
-        });
-
-        // Function to add a new row to the table
-        $('#addRowBtn').click(function () {
-            // Clone the template row and show it
-            var newRow = $('#newRowTemplate').clone().removeAttr('id').show();
-
-            newRow.find('.speakerNameInput').attr('name', 'Speaker');
-            newRow.find('.topicInput').attr('name', 'Topic');
-
-            $('#talksTable tbody').append(newRow);
-        });
-
-        // Function to delete a row from the table
-        $('#talksTable').on('click', '.deleteRowBtn', function () {
-            $(this).closest('tr').remove();
-        });
-    });
-</script>
-
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+		// Needs to load after the built-in jQuery
+		await Html.RenderPartialAsync("_SpeakerTableScript");
+	}
 }

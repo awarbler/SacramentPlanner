@@ -1,0 +1,45 @@
+﻿<script>
+	$(document).ready(function () {
+
+		$('#meetingForm').submit(function (e) {
+			let isValid = true;
+			// Check each row for empty Speaker and Topic fields
+			$('#talksTable tbody tr').each(function () {
+				if (!$(this).is(':visible') || $(this).hasClass('deletedRow')) {
+					return true; // Skip validation for hidden or deleted rows
+				}
+
+				let speaker = $(this).find('.speakerNameInput').val();
+				let topic = $(this).find('.topicInput').val();
+
+				if (speaker.trim() === '' || topic.trim() === '') {
+					alert('Speaker and Topic fields cannot be empty');
+					isValid = false;
+					return false;
+				}
+			});
+			if (!isValid) {
+				e.preventDefault(); // Prevent form submission
+				return false;
+			}
+			return true;
+		});
+
+		// Function to add a new row to the table
+		$('#addRowBtn').click(function () {
+			// Clone the template row and show it
+			var newRow = $('#newRowTemplate').clone().removeAttr('id').show();
+
+			newRow.find('.speakerNameInput').attr('name', 'Speaker');
+			newRow.find('.topicInput').attr('name', 'Topic');
+
+			// Insert it above the add button
+			newRow.insertBefore($(".add-btn-row"));
+		});
+
+		// Function to delete a row from the table
+		$('#talksTable').on('click', '.deleteRowBtn', function () {
+			$(this).closest('tr').remove();
+		});
+	});
+</script>

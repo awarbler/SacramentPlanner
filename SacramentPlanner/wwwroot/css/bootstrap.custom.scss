@@ -45,7 +45,6 @@ body {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    //line-height: 30px; /* Vertically center the text there */
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -110,15 +109,21 @@ h1 {
 }
 
 .btn {
-    border: none;
     border-radius: 0.125rem;
     display: inline-block;
     height: 40px;
     padding: 6px 12px;
+    white-space: nowrap;    // Delete buttons were overflowing for some reason
 }
 
+// Buttons with an icon and text
 .btn i {
     padding-right: 0.65em;
+}
+
+// Buttons with an icon only
+.icon-only i {
+    padding-right: 0;
 }
 
 .control-label {
@@ -136,4 +141,9 @@ h1 {
 #sort-filter > * {
     height: 40px;
     vertical-align: middle;
+}
+
+// Give delete some breathing room
+dt {
+    margin-bottom: 12px;
 }
