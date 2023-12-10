@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using SacramentPlanner.Data;
 using SacramentPlanner.Models;
+using Newtonsoft.Json;
 
 namespace SacramentPlanner.Pages
 {
@@ -19,7 +15,10 @@ namespace SacramentPlanner.Pages
             _context = context;
         }
 
-      public Meeting Meeting { get; set; } = default!; 
+        public List<string> HymnNames { get; set; }
+        const string HymnNamesFile = "wwwroot/js/HymnNames-eng.min.json";
+		public Meeting Meeting { get; set; } = default!;
+        public int SpeakersPreInterim = 0;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -33,11 +32,28 @@ namespace SacramentPlanner.Pages
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Meeting = meeting;
             }
+
+            // Calculate the midpoint of the meeting based on number of speakers
+            var tempConversion = Math.Ceiling((double)Meeting.TalksList.Count / 2);
+            SpeakersPreInterim = (int)tempConversion;
+
+            // Open and parse the hymn names file
+            try
+            {
+                var jsonContent = await System.IO.File.ReadAllTextAsync(HymnNamesFile);
+                HymnNames = JsonConvert.DeserializeObject<List<string>>(jsonContent)!;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+            }
+
             return Page();
         }
     }
 }
+

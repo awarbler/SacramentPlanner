@@ -147,3 +147,10 @@ h1 {
 dt {
     margin-bottom: 12px;
 }
+
+// Special horiz. line in Details
+.line {
+    border-top: 1px solid #000;
+    width: 80%;
+    margin: 20px auto;
+}

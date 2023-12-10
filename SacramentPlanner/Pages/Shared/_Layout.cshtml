@@ -11,7 +11,7 @@
 	@*<link rel="stylesheet" href="~/SacramentPlanner.styles.css" asp-append-version="true" />*@
 </head>
 <body>
-	<header>
+	<header class="d-print-none">
 		<nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
 			<a class="navbar-brand" asp-page="/Index"><i class="fa-solid fa-place-of-worship"></i> Sacrament Planner</a>
 			@* This SVG was stolen from churchofjesuschrist.org *@
@@ -41,7 +41,7 @@
 		</main>
 	</div>
 
-	<footer class="border-top footer text-muted">
+	<footer class="border-top footer text-muted d-print-none">
 		<div class="container">
 			<p>&copy; 2023 - SacramentPlanner - <a asp-area="" asp-page="/Privacy">Privacy</a></p>
 			<p style="font-size: 0.85em"><strong>DISCLAIMER:</strong> "Ensign" font family is loaded from <a href="https://foundry.churchofjesuschrist.org/">foundry.churchofjesuschrist.org</a>, which is probably not intended for public use &ndash; but also doesn't say anything about licensing. Ask for forgiveness, not permission ¯\_(ツ)_/¯</p>
