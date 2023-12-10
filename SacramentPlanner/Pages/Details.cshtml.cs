@@ -37,12 +37,6 @@ namespace SacramentPlanner.Pages
                 Meeting = meeting;
             }
 
-            // Fetch the JSON string from the database record that matches the id
-            //string jsonFromDatabase = Meeting.TalksJson.ToString();
-
-            // Deserializes the JSON string into a list of SpeakerTopic objects
-            //SpeakerTopicList = JsonConvert.DeserializeObject<List<SpeakerTopic>>(jsonFromDatabase);
-
             // Calculate the midpoint of the meeting based on number of speakers
             var tempConversion = Math.Ceiling((double)Meeting.TalksList.Count / 2);
             SpeakersPreInterim = (int)tempConversion;
@@ -52,22 +46,6 @@ namespace SacramentPlanner.Pages
             {
                 var jsonContent = await System.IO.File.ReadAllTextAsync(HymnNamesFile);
                 HymnNames = JsonConvert.DeserializeObject<List<string>>(jsonContent)!;
-
-
-
-                //using (StreamReader sr = new StreamReader(filePath))
-                //{
-                //    string line;
-                //    while ((line = sr.ReadLine()) != null)
-                //    {
-                //        int index = line.IndexOf('-');
-                //        if (index != -1 && index + 1 < line.Length)
-                //        {
-                //            string hymnName = line.Substring(index + 1).Trim();
-                //            HymnNames.Add(hymnName);
-                //        }
-                //    }
-                //}
             }
             catch (Exception ex)
             {
