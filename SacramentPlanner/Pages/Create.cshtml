@@ -28,7 +28,10 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.OpeningHymn" class="control-label"></label>
-				<input asp-for="Meeting.OpeningHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.OpeningHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.OpeningHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -38,12 +41,18 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.SacramentHymn" class="control-label"></label>
-				<input asp-for="Meeting.SacramentHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.SacramentHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.SacramentHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.RestHymn" class="control-label"></label>
-				<input asp-for="Meeting.RestHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.RestHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.RestHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -53,7 +62,10 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.ClosingHymn" class="control-label"></label>
-				<input asp-for="Meeting.ClosingHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.ClosingHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.ClosingHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -76,11 +88,12 @@
 					</thead>
 					<tbody>
 						@* Start with 1 speaker *@
+					@* The speaker in this group gets added weirdly or not at all
 						<tr>
 							<td><input type="text" class="speakerNameInput form-control"></td>
 							<td><input type="text" class="topicInput form-control"></td>
 							<td><button class="deleteRowBtn btn btn-danger icon-only"><i class="fa-solid fa-xmark"></i></button></td>
-						</tr>
+						</tr>*@
 						@* Placeholder for the new row that will be added *@
 						<tr id="newRowTemplate" style="display: none;">
 							<td><input type="text" class="speakerNameInput form-control"></td>
@@ -102,6 +115,8 @@
 		</form>
 	</div>
 </div>
+
+<script type="module" src="~/js/editorHymnNames.js"></script>
 
 @section Scripts {
 	@{

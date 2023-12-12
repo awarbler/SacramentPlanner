@@ -31,18 +31,12 @@
 			</div>
 		</div>
 		<div class="text-center">
-			<button type="submit" class="btn btn-primary mt-2">Apply</button>
+			<button type="submit" class="btn btn-primary m-2"><i class="fa-solid fa-filter"></i>Apply</button>
 		</div>
 	</form>
 </div>
 
 
-
-
-
-<form id="sort-filter">
-	@* TODO: Add sort/filtering here *@
-</form>
 
 <table class="table table-striped table-hover">
 	<thead class="bg-primary text-light">
@@ -81,8 +75,14 @@
 					<div>Opening: #@Html.DisplayFor(modelItem => item.OpeningHymn)</div>
 					<div>Sacrament: #@Html.DisplayFor(modelItem => item.SacramentHymn)</div>
 					@* TODO: Display rest/special only if they exist *@
-					<div>Rest: #@Html.DisplayFor(modelItem => item.RestHymn)</div>
-					<div>Special: @Html.DisplayFor(modelItem => item.SpecialMusicalNumber)</div>
+					@if (item.RestHymn != null)
+					{
+						<div>Rest: #@Html.DisplayFor(modelItem => item.RestHymn)</div>
+					}
+					@if (item.SpecialMusicalNumber != null)
+					{
+						<div>Special: @Html.DisplayFor(modelItem => item.SpecialMusicalNumber)</div>
+					}
 					<div>Closing: #@Html.DisplayFor(modelItem => item.ClosingHymn)</div>
 				</td>
 				<td>

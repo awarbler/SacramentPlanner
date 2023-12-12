@@ -90,7 +90,7 @@
 	@if (Model.Meeting.RestHymn.ToString() != "")
 	{
 		<p>
-			<strong>Interim Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value]</i>
+			<strong>Rest Hymn</strong> - <i>@Model.HymnNames[Model.Meeting.RestHymn.Value]</i>
 			- Page @Html.DisplayFor(model => model.Meeting.RestHymn)
 		</p>
 	}

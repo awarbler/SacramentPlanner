@@ -29,7 +29,10 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.OpeningHymn" class="control-label"></label>
-				<input asp-for="Meeting.OpeningHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.OpeningHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.OpeningHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -39,12 +42,18 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.SacramentHymn" class="control-label"></label>
-				<input asp-for="Meeting.SacramentHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.SacramentHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.SacramentHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.RestHymn" class="control-label"></label>
-				<input asp-for="Meeting.RestHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.RestHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.RestHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -54,7 +63,10 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Meeting.ClosingHymn" class="control-label"></label>
-				<input asp-for="Meeting.ClosingHymn" class="form-control" />
+				<div class="hymn-group">
+					<input asp-for="Meeting.ClosingHymn" class="form-control d-inline hymn-field" />
+					<span class="d-inline hymn-name"></span>
+				</div>
 				<span asp-validation-for="Meeting.ClosingHymn" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -69,33 +81,33 @@
 				@* Dynamic table for TalksJson *@
 				<table id="talksTable" class="table">
 					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Topic</th>
-							<th></th>
-						</tr>
+					<tr>
+						<th>Name</th>
+						<th>Topic</th>
+						<th></th>
+					</tr>
 					</thead>
 					<tbody>
-						@* Existing rows from TalksList *@
-						@foreach (var talk in Model.Meeting.TalksList)
-						{
-							<tr>
-								<td><input type="text" name="Speaker" class="speakerNameInput form-control" value="@talk.SpeakerName"></td>
-								<td><input type="text" name="Topic" class="topicInput form-control" value="@talk.Topic"></td>
-								<td><button class="deleteRowBtn btn btn-danger icon-only"><i class="fa-solid fa-xmark"></i></button></td>
-							</tr>
-						}
-						@* Placeholder for the new row that will be added *@
-						<tr id="newRowTemplate" style="display: none;">
-							<td><input type="text" class="speakerNameInput form-control"></td>
-							<td><input type="text" class="topicInput form-control"></td>
+					@* Existing rows from TalksList *@
+					@foreach (var talk in Model.Meeting.TalksList)
+					{
+						<tr>
+							<td><input type="text" name="Speaker" class="speakerNameInput form-control" value="@talk.SpeakerName"></td>
+							<td><input type="text" name="Topic" class="topicInput form-control" value="@talk.Topic"></td>
 							<td><button class="deleteRowBtn btn btn-danger icon-only"><i class="fa-solid fa-xmark"></i></button></td>
 						</tr>
-						<tr class="add-btn-row">
-							<td><button id="addRowBtn" class="btn btn-primary" type="button"><i class="fa-solid fa-user-plus"></i>Add Speaker</button></td>
-							<td></td>
-							<td></td>
-						</tr>
+					}
+					@* Placeholder for the new row that will be added *@
+					<tr id="newRowTemplate" style="display: none;">
+						<td><input type="text" class="speakerNameInput form-control"></td>
+						<td><input type="text" class="topicInput form-control"></td>
+						<td><button class="deleteRowBtn btn btn-danger icon-only"><i class="fa-solid fa-xmark"></i></button></td>
+					</tr>
+					<tr class="add-btn-row">
+						<td><button id="addRowBtn" class="btn btn-primary" type="button"><i class="fa-solid fa-user-plus"></i>Add Speaker</button></td>
+						<td></td>
+						<td></td>
+					</tr>
 					</tbody>
 				</table>
 			</div>
@@ -106,6 +118,8 @@
 		</form>
 	</div>
 </div>
+
+<script type="module" src="~/js/editorHymnNames.js"></script>
 
 @section Scripts {
 	@{
