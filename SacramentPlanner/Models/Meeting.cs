@@ -18,23 +18,22 @@ namespace SacramentPlanner.Models
 
 		public string? Conductor { get; set; }
 
-		// TODO: Store hymns as ints - create a file (likely JSON array) to look up names
-		// Names are from https://www.churchofjesuschrist.org/music/index/hymns/number?lang=eng
-		// https://stackoverflow.com/questions/29841503/json-serialization-deserialization-in-asp-net-core
 		[Display(Name = "Opening Hymn")]
 		[Required]
+		[Range(1,341, ErrorMessage = "Please choose a hymn from the English LDS hymnbook (1-341).")]
 		public int OpeningHymn { get; set; }
 
 		[Display(Name = "Opening Prayer (Invocation)")]
 		[Required]
 		public string? OpeningPrayer { get; set; }
 
-		// Sacrament hymns are 169-196, consider enforcing this range
 		[Display(Name = "Sacrament Hymn")]
 		[Required]
+		[Range(169, 196, ErrorMessage = "Please choose a sacrament-related hymn (169-196).")]
 		public int SacramentHymn { get; set; }
 		
 		[Display(Name = "Rest Hymn")]
+		[Range(1, 341, ErrorMessage = "Please choose a hymn from the English LDS hymnbook (1-341).")]
 		public int? RestHymn { get; set; }
 
 		// TODO in Create/Edit: Don't allow a musical number and a rest hymn at the same time
@@ -45,18 +44,12 @@ namespace SacramentPlanner.Models
 		// For further hymnforcement, maybe disallow gendered/choir pieces (309-337) - review "using the hymnbook"
 		[Display(Name = "Closing Hymn")]
 		[Required]
+		[Range(1, 341, ErrorMessage = "Please choose a hymn from the English LDS hymnbook (1-341).")]
 		public int ClosingHymn { get; set; }
 
 		[Display(Name = "Closing Prayer (Benediction)")]
 		[Required]
 		public string? ClosingPrayer { get; set; }
-
-		// TODO: Store in database as newline(?)-separated values, but treat it as a data structure
-		//        Heck, why not store it as JSON?
-		//        Possible approach: https://stackoverflow.com/a/15221028
-		//        Store topics in here too?
-		//        Whatever the case, there needs to be some kind of special frontend stuff in Create/Edit...
-		//        - Modification of https://codepen.io/redmangospros/pen/POVmwQ/
 
 		/// <summary>
 		/// A list of Talks stored as JSON, since single strings can be stored in the database without issue.
